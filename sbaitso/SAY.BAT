@@ -1,0 +1,4 @@
+ECHO OFF
+SBTALKER /dBLASTER
+Read '1 2 ' %1
+EXIT
