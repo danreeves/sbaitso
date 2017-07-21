@@ -22,3 +22,8 @@ kill $FFPID
 
 # trim the silence
 ffmpeg -y -i out.mp3 -af silenceremove=1:0:-50dB trimmed.mp3
+
+# make a video
+ffmpeg -loop 1 -i sbaitso.png -i trimmed.mp3 -c:a copy -c:v libx264 -shortest out.mp4
+
+# TODO: https://dev.twitter.com/rest/media/uploading-media#videorecs
