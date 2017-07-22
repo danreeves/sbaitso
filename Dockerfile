@@ -14,4 +14,4 @@ RUN apt-get -y install -y libfdk-aac-dev ffmpeg
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 RUN npm i
-# CMD ["nodejs", "server/listen.js"]
+CMD ["nodejs", "server/listen.js"]
