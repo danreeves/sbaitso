@@ -1,5 +1,5 @@
 const Twit = require('twit');
-const RunQueue = require('run-queue');
+const makeQueue = require('queue');
 const generate = require('./generate.js');
 const tweet = require('./tweet.js');
 
@@ -12,24 +12,25 @@ const T = new Twit({
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
 });
 
-const tweetQueue = RunQueue({
-    maxConcurrency: 1,
+const tweetQueue = makeQueue({
+    concurrency: 1,
+    autostart: 1,
 });
 
 const stream = T.stream('user');
 
 async function generateAndTweet(T, direct_message) {
-    await generate(direct_message.text);
-    console.log('>> generated');
-    await tweet(T, direct_message.text);
-    console.log('>> tweeted');
-    return true;
-}
-
-function runQueue() {
-    tweetQueue.run().then(() => {
-        setTimeout(runQueue, 1000);
-    });
+    console.log('>> processing:', direct_message.text);
+    try {
+        await generate(direct_message.text);
+        console.log('>>> generated');
+        await tweet(T, direct_message.text);
+        console.log('>>> tweeted');
+        return true;
+    } catch (err) {
+        console.log(err);
+        return false;
+    }
 }
 
 stream.on('disconnect', function(disconnect) {
@@ -47,8 +48,10 @@ stream.on('reconnect', function(reconn, res, interval) {
 stream.on('direct_message', async function({ direct_message }) {
     console.log('> message recieved:', direct_message.text);
     if (direct_message.sender.screen_name === 'dnrvs') {
-        tweetQueue.add(1, generateAndTweet, [T, direct_message]);
+        tweetQueue.push(function(cb) {
+            generateAndTweet(T, direct_message).then(res => {
+                cb();
+            });
+        });
     }
 });
-
-runQueue();

@@ -1,8 +1,8 @@
-# Remove the out dir
-rm -rf ./out
+# # Remove the out dir
+rm -rf /tmp/sbaitso
 
-# Make the out dir
-mkdir -p out
+# # Make the out dir
+mkdir -p /tmp/sbaitso
 
 # Start the pulseaudio server
 pulseaudio -D --exit-idle-time=-1
@@ -15,7 +15,7 @@ pacmd set-default-sink v1
 pacmd set-default-source v1.monitor
 
 # Start the ffmpeg capture to an audio file
-ffmpeg -y -f pulse -i default out/out.mp3 & FFPID=$!
+ffmpeg -y -f pulse -i default /tmp/sbaitso/out.mp3 & FFPID=$!
 
 # Wait for ffmpeg recording to catch up
 sleep 1
@@ -23,27 +23,29 @@ sleep 1
 # Start dosox & dr sbaitso
 dosbox -c 'mount C sbaitso' -c 'C:' -c "SAY.BAT \"$1\""
 
+sleep 1
+
 # Kill the ffmpeg recording
 kill $FFPID
 
 # Trim the silence at start
-ffmpeg -y -i out/out.mp3 -af silenceremove=1:0:-50dB out/trimmed1.mp3
+ffmpeg -y -i /tmp/sbaitso/out.mp3 -af silenceremove=1:0:-50dB /tmp/sbaitso/trimmed1.mp3
 
 # Reverse the audio
-ffmpeg -y -i out/trimmed1.mp3 -af areverse out/reversed.mp3
+ffmpeg -y -i /tmp/sbaitso/trimmed1.mp3 -af areverse /tmp/sbaitso/reversed.mp3
 
 # Trim the silence at end
-ffmpeg -y -i out/reversed.mp3 -af silenceremove=1:0:-50dB out/trimmed2.mp3
+ffmpeg -y -i /tmp/sbaitso/reversed.mp3 -af silenceremove=1:0:-50dB /tmp/sbaitso/trimmed2.mp3
 
 # Reverse the audio again
-ffmpeg -y -i out/trimmed2.mp3 -af areverse out/alltrimmed.mp3
+ffmpeg -y -i /tmp/sbaitso/trimmed2.mp3 -af areverse /tmp/sbaitso/alltrimmed.mp3
 
 # Turn it into a video
 ffmpeg \
     -y \
     -loop 1 \
     -i sbaitso.png \
-    -i out/alltrimmed.mp3 \
+    -i /tmp/sbaitso/alltrimmed.mp3 \
     -c:a aac \
     -strict -2 \
     -b:a 64k \
@@ -51,4 +53,4 @@ ffmpeg \
     -b:v 768K \
     -shortest \
     -pix_fmt yuv420p \
-    out/video.mp4
+    /tmp/sbaitso/video.mp4

@@ -1,6 +1,4 @@
-const path = require('path');
-
-const videoFile = path.join(__dirname, '../out/video.mp4');
+const videoFile = '/tmp/sbaitso/video.mp4';
 
 module.exports = function tweet(T, text) {
     return new Promise(function(resolve, reject) {
