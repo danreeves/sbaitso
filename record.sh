@@ -5,7 +5,7 @@ pulseaudio -D --exit-idle-time=-1
 pacmd load-module module-virtual-sink sink_name=v1
 pacmd set-default-sink v1
 
-# set the monitor of v1 sink to be the default source
+# Set the monitor of v1 sink to be the default source
 pacmd set-default-source v1.monitor
 
 # Start the ffmpeg capture to an audio file
@@ -17,23 +17,22 @@ sleep 1
 # Start dosox & dr sbaitso
 dosbox -c 'mount C sbaitso' -c 'C:' -c 'SAY.BAT "HELLO, MY NAME IS DOCTOR SBAITSO."'
 
-# kill the ffmpeg recording
+# Kill the ffmpeg recording
 kill $FFPID
 
-# trim the silence at start
+# Trim the silence at start
 ffmpeg -y -i out/out.mp3 -af silenceremove=1:0:-50dB out/trimmed1.mp3
 
-# reverse the audio
+# Reverse the audio
 ffmpeg -y -i out/trimmed1.mp3 -af areverse out/reversed.mp3
 
-# trim the silence at end
+# Trim the silence at end
 ffmpeg -y -i out/reversed.mp3 -af silenceremove=1:0:-50dB out/trimmed2.mp3
 
-# reverse the audio again
+# Reverse the audio again
 ffmpeg -y -i out/trimmed2.mp3 -af areverse out/alltrimmed.mp3
 
-
-# make a video
+# Turn it into a video
 ffmpeg \
     -y \
     -loop 1 \
@@ -47,5 +46,3 @@ ffmpeg \
     -shortest \
     -pix_fmt yuv420p \
     out/video.mp4
-
-# TODO: https://dev.twitter.com/rest/media/uploading-media#videorecs

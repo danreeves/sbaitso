@@ -14,14 +14,14 @@ const videoFile = path.join(__dirname, '../out/video.mp4');
 
 T.postMediaChunked({ file_path: videoFile }, function(err, data, response) {
     const mediaIdStr = data.media_id_string;
-    const altText = 'Hello, this is Dr. Sbaitso';
+    const altText = 'Hello, my name is Dr. Sbaitso';
     const meta_params = { media_id: mediaIdStr, alt_text: { text: altText } };
 
     T.post('media/metadata/create', meta_params, function(err, data, response) {
         if (!err) {
             // now we can reference the media and post a tweet (media will attach to the tweet)
             const params = {
-                status: 'Hello, this is Dr. Sbaitso',
+                status: 'Hello, my name is Dr. Sbaitso',
                 media_ids: [mediaIdStr],
             };
 

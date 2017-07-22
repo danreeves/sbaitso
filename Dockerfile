@@ -9,3 +9,4 @@ RUN apt-get install -y libbs2b-dev libcaca-dev libopenjpeg-dev librtmp-dev libvp
 RUN apt-get install -y libwavpack-dev libxvidcore-dev lzma-dev liblzma-dev zlib1g-dev cmake-curses-gui
 RUN apt-get install -y libx11-dev libxfixes-dev libmp3lame-dev libx264-dev #libx264-146 libx264-dev
 RUN apt-get install -y libfdk-aac-dev ffmpeg
+WORKDIR /usr/src/app
