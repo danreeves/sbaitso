@@ -12,4 +12,5 @@ RUN apt-get -y install -y libwavpack-dev libxvidcore-dev lzma-dev liblzma-dev zl
 RUN apt-get -y install -y libx11-dev libxfixes-dev libmp3lame-dev libx264-dev #libx264-146 libx264-dev
 RUN apt-get -y install -y libfdk-aac-dev ffmpeg
 WORKDIR /usr/src/app
+RUN npm i
 ENTRYPOINT ['nodejs', 'server/listen.js']
