@@ -1,3 +1,9 @@
+# Remove the out dir
+rm -rf ./out
+
+# Make the out dir
+mkdir -p out
+
 # Start the pulseaudio server
 pulseaudio -D --exit-idle-time=-1
 
@@ -15,7 +21,7 @@ ffmpeg -y -f pulse -i default out/out.mp3 & FFPID=$!
 sleep 1
 
 # Start dosox & dr sbaitso
-dosbox -c 'mount C sbaitso' -c 'C:' -c 'SAY.BAT "HELLO, MY NAME IS DOCTOR SBAITSO."'
+dosbox -c 'mount C sbaitso' -c 'C:' -c "SAY.BAT \"$1\""
 
 # Kill the ffmpeg recording
 kill $FFPID

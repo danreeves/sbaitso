@@ -19,6 +19,7 @@
   "homepage": "https://github.com/danreeves/sbaitso#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "execa": "^0.7.0",
     "twit": "^2.2.9"
   }
 }
