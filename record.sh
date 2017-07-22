@@ -17,7 +17,7 @@ pacmd set-default-sink v1
 pacmd set-default-source v1.monitor
 
 # Start the ffmpeg capture to an audio file
-ffmpeg -y -f pulse -i default /tmp/sbaitso/out.mp3 & FFPID=$!
+ffmpeg -y -f pulse -i default -c:a libmp3lame /tmp/sbaitso/out.mp3 & FFPID=$!
 
 # Wait for ffmpeg recording to catch up
 sleep 1
@@ -31,16 +31,16 @@ sleep 1
 kill -INT $FFPID
 
 # Trim the silence at start
-ffmpeg -y -i /tmp/sbaitso/out.mp3 -af silenceremove=1:0:-50dB /tmp/sbaitso/trimmed1.mp3
+ffmpeg -y -i /tmp/sbaitso/out.mp3 -c:a libmp3lame -af silenceremove=1:0:-50dB /tmp/sbaitso/trimmed1.mp3
 
 # Reverse the audio
-ffmpeg -y -i /tmp/sbaitso/trimmed1.mp3 -af areverse /tmp/sbaitso/reversed.mp3
+ffmpeg -y -i /tmp/sbaitso/trimmed1.mp3 -c:a libmp3lame -af areverse /tmp/sbaitso/reversed.mp3
 
 # Trim the silence at end
-ffmpeg -y -i /tmp/sbaitso/reversed.mp3 -af silenceremove=1:0:-50dB /tmp/sbaitso/trimmed2.mp3
+ffmpeg -y -i /tmp/sbaitso/reversed.mp3 -c:a libmp3lame -af silenceremove=1:0:-50dB /tmp/sbaitso/trimmed2.mp3
 
 # Reverse the audio again
-ffmpeg -y -i /tmp/sbaitso/trimmed2.mp3 -af areverse /tmp/sbaitso/alltrimmed.mp3
+ffmpeg -y -i /tmp/sbaitso/trimmed2.mp3 -c:a libmp3lame -af areverse /tmp/sbaitso/alltrimmed.mp3
 
 # Turn it into a video
 ffmpeg \
