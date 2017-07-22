@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # # Remove the out dir
 rm -rf /tmp/sbaitso
 
