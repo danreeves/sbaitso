@@ -1,0 +1,24 @@
+{
+  "name": "dr-sbaitso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danreeves/sbaitso.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danreeves/sbaitso/issues"
+  },
+  "homepage": "https://github.com/danreeves/sbaitso#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "twit": "^2.2.9"
+  }
+}

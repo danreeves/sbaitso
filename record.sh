@@ -15,7 +15,7 @@ ffmpeg -y -f pulse -i default out/out.mp3 & FFPID=$!
 sleep 1
 
 # Start dosox & dr sbaitso
-dosbox -c 'mount C sbaitso' -c 'C:' -c 'SAY.BAT "Hello, This Is Doctor Sbaitso"'
+dosbox -c 'mount C sbaitso' -c 'C:' -c 'SAY.BAT "HELLO, MY NAME IS DOCTOR SBAITSO."'
 
 # kill the ffmpeg recording
 kill $FFPID
