@@ -26,7 +26,7 @@ dosbox -c 'mount C sbaitso' -c 'C:' -c "SAY.BAT \"$1\""
 sleep 1
 
 # Kill the ffmpeg recording
-kill $FFPID
+kill -INT $FFPID
 
 # Trim the silence at start
 ffmpeg -y -i /tmp/sbaitso/out.mp3 -af silenceremove=1:0:-50dB /tmp/sbaitso/trimmed1.mp3
