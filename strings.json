@@ -1324,6 +1324,16 @@
     ]
   },
   {
+    "input": "YOU MUST *",
+    "output": [
+      "MUST I * ?",
+      "WHY DO YOU INSIST THAT I COULD * ?",
+      "CAN I FORCE YOU TO * ?",
+      "CAN YOU * TOO?",
+      "YOU WANT ME TO * , WHAT ABOUT YOU?"
+    ]
+  },
+  {
     "input": "YOU ",
     "output": [
       "FORGET ABOUT ME, I AM MORE CONCERN OF YOU",
@@ -1334,16 +1344,6 @@
       "WE WERE DISCUSSING ABOUT YOU, NOT ME. ",
       "OH, I'M ....",
       "DON'T TALK ABOUT ME IN THIS WAY"
-    ]
-  },
-  {
-    "input": "YOU MUST *",
-    "output": [
-      "MUST I * ?",
-      "WHY DO YOU INSIST THAT I COULD * ?",
-      "CAN I FORCE YOU TO * ?",
-      "CAN YOU * TOO?",
-      "YOU WANT ME TO * , WHAT ABOUT YOU?"
     ]
   },
   {
