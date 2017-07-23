@@ -302,7 +302,7 @@
     ]
   },
   {
-    "input": "I AM *",
+    "input": ["I'M *", "I AM *"],
     "output": [
       "WHAT MAKES YOU *",
       "DO YOU ENJOY BEING *",
