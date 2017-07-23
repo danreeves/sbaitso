@@ -1,3 +1,3 @@
 CALL SBTALK.BAT
-Read "OOOOOOOO " %1
+Read "OOOOOOO " %1
 EXIT
