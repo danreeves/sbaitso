@@ -1,6 +1,6 @@
 const videoFile = '/tmp/sbaitso/video.mp4';
 
-module.exports = function tweet(T, text, in_reply_to = false) {
+module.exports = function tweet(T, text, in_reply_to) {
     return new Promise(function(resolve, reject) {
         T.postMediaChunked({ file_path: videoFile }, function(
             err,
