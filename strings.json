@@ -302,7 +302,10 @@
     ]
   },
   {
-    "input": ["I'M *", "I AM *"],
+    "input": [
+      "I'M *",
+      "I AM *"
+    ],
     "output": [
       "WHAT MAKES YOU *",
       "DO YOU ENJOY BEING *",
@@ -363,14 +366,6 @@
       "THERE IS NOTHING TO BE PROUD OF",
       "HOW DO YOU KEEP UP WITH *",
       "KEEP IT TO YOURSELF"
-    ]
-  },
-  {
-    "input": "SBAITSO",
-    "output": [
-      "I AM SBAITSO, DON'T QUESTION MY INTELLIGENCE, IT'S FAKE",
-      "IT'S SOUND BLASTER ACTING INTELLIGENT TEXT TO SPEECH OPERATOR",
-      "SBAITSO ATTEMPTS TO ANSWER QUESTIONS USING A SYNTHETIC VOICE"
     ]
   },
   {
@@ -1369,6 +1364,14 @@
       "HOW DARE YOU!",
       "YOU CAN TURN OFF MY POWER ANYTIME",
       "NO WAY"
+    ]
+  },
+  {
+    "input": "SBAITSO",
+    "output": [
+      "I AM SBAITSO, DON'T QUESTION MY INTELLIGENCE, IT'S FAKE",
+      "IT'S SOUND BLASTER ACTING INTELLIGENT TEXT TO SPEECH OPERATOR",
+      "SBAITSO ATTEMPTS TO ANSWER QUESTIONS USING A SYNTHETIC VOICE"
     ]
   },
   {
