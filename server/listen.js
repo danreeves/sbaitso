@@ -21,11 +21,12 @@ const stream = T.stream('user');
 
 const whitelistNames = [
     'dnrvs',
+    'sbaitsobot',
     'nickbreckon',
     'chrisremo',
     'ja2ke',
     'importantcast',
-]
+];
 
 async function generateAndTweet(T, direct_message) {
     console.log('>> processing:', direct_message.text);

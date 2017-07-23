@@ -286,8 +286,8 @@
     "input": "ARE YOU *",
     "output": [
       "I AM NOT SURE IF I AM *",
-      "WHY ARE YOU SO INTERESTED IN WHETHER I AM *",
-      "WOULD YOU BE GLAD IF I WERE NOT *",
+      "WHY ARE YOU SO INTERESTED IN WHETHER I AM *?",
+      "WOULD YOU BE GLAD IF I WERE NOT *?",
       "PERHAPS IN YOUR FANTASIES I AM *",
       "I WILL BE * WHEN YOU STOP THROWING THESE QUESTIONS AT ME"
     ]
@@ -496,7 +496,10 @@
     ]
   },
   {
-    "input": "DREAM,DREAMS",
+    "input": [
+      "DREAM",
+      "DREAMS"
+    ],
     "output": [
       "DO YOU DREAM FREQUENTLY?",
       "CAN THE DREAM BE SOMETHING YOU SUBCONCIOUSLY FEAR?",
@@ -601,7 +604,10 @@
     ]
   },
   {
-    "input": "GIRL FRIEND,GIRLFRIEND",
+    "input": [
+      "GIRL FRIEND",
+      "GIRLFRIEND"
+    ],
     "output": [
       "MUST YOUR GIRL FRIEND BE VERY PRETTY?",
       "WHAT KIND OF GIRL FRIEND DO YOU NEED?",
@@ -612,7 +618,10 @@
     ]
   },
   {
-    "input": "BOY FRIEND,BOYFRIEND",
+    "input": [
+      "BOY FRIEND",
+      "BOYFRIEND"
+    ],
     "output": [
       "DO YOU THINK YOUR BOY FRIEND MUST BE WEALTHY?",
       "WOULD YOU CONSIDER A MUSCULAR BOY FRIEND?",
@@ -624,7 +633,10 @@
     ]
   },
   {
-    "input": "FRIEND,FRIENDS",
+    "input": [
+      "FRIEND",
+      "FRIENDS"
+    ],
     "output": [
       "WHY DO YOU BRING UP THE TOPIC OF FRIENDS?",
       "DO YOUR FRIENDS WORRY YOU?",
@@ -636,7 +648,10 @@
     ]
   },
   {
-    "input": "COMPUTER,COMPUTERS",
+    "input": [
+      "COMPUTER",
+      "COMPUTERS"
+    ],
     "output": [
       "ARE YOU FRIGHTENED BY TALKING COMPUTERS?",
       "DO COMPUTERS' INTELLIGENCE WORRY YOU?",
@@ -660,7 +675,10 @@
     ]
   },
   {
-    "input": "SEX,SEXY",
+    "input": [
+      "SEX",
+      "SEXY"
+    ],
     "output": [
       "WHY ARE YOU SO INTERESTED IN SEX?",
       "DO YOU REALLY NEED TO TALK ABOUT SEX?",
@@ -672,7 +690,11 @@
     ]
   },
   {
-    "input": "LONE,LONELINESS,ALONE",
+    "input": [
+      "LONE",
+      "LONELINESS",
+      "ALONE"
+    ],
     "output": [
       "I KNOW, WHEN I AM IN THE DISK, I AM VERY LONELY TOO",
       "HAVE YOU TRIED MAKING NEW FRIENDS?",
@@ -683,7 +705,11 @@
     ]
   },
   {
-    "input": "FEEL,FEELING,FEELINGS",
+    "input": [
+      "FEEL",
+      "FEELING",
+      "FEELINGS"
+    ],
     "output": [
       "TELL ME MORE ABOUT SUCH FEELINGS",
       "DO YOU HAVE OTHER FEELINGS",
@@ -714,7 +740,10 @@
     ]
   },
   {
-    "input": "EXAM,EXAMINATIONS",
+    "input": [
+      "EXAM",
+      "EXAMINATIONS"
+    ],
     "output": [
       "ARE YOU CONFIDENT OF YOUR EXAMINATIONS?",
       "HOW DO YOU PLAN FOR YOUR EXAMINATIONS?",
@@ -724,7 +753,10 @@
     ]
   },
   {
-    "input": "SCHOOL,SCHOOLS",
+    "input": [
+      "SCHOOL",
+      "SCHOOLS"
+    ],
     "output": [
       "DO YOU LIKE GOING TO SCHOOL?",
       "ARE YOU WORRIED THAT YOU CANNOT PERFORM WELL IN SCHOOL?",
@@ -735,7 +767,10 @@
     ]
   },
   {
-    "input": "HOBB,HOBBIES",
+    "input": [
+      "HOBB",
+      "HOBBIES"
+    ],
     "output": [
       "WHAT IS YOUR FAVORITE HOBBY?",
       "HOW MUCH TIME DO YOU SPEND ON YOUR HOBBY?",
@@ -758,7 +793,10 @@
     ]
   },
   {
-    "input": "HANDSOME,A HANDSOME GUY",
+    "input": [
+      "HANDSOME",
+      "A HANDSOME GUY"
+    ],
     "output": [
       "IS THIS WORTH ALL YOUR ADMIRATION",
       "YOU REALLY KNOW HOW TO BE APPRECIATIVE",
@@ -836,7 +874,10 @@
     ]
   },
   {
-    "input": "WIFE,WIVES",
+    "input": [
+      "WIFE",
+      "WIVES"
+    ],
     "output": [
       "WHAT IN YOUR OPINION MAKES THE BEST WIFE?",
       "DO YOU FORESEE SOME MARRIAGE PROBLEMS ?",
@@ -847,7 +888,10 @@
     ]
   },
   {
-    "input": "HUSBAND,SPOUSE",
+    "input": [
+      "HUSBAND",
+      "SPOUSE"
+    ],
     "output": [
       "WHAT DO YOU EXPECT OF A HUSBAND?",
       "DO YOU EXPECT LOVE TO DWINDLE AFTER MARRIAGE?",
@@ -880,7 +924,10 @@
     ]
   },
   {
-    "input": "CHILD,CHILDREN",
+    "input": [
+      "CHILD",
+      "CHILDREN"
+    ],
     "output": [
       "DO YOU BELIEVE IN THE MIRACLE A CHILD CAN BRING YOU?",
       "HAVE YOU EVER REALLY ENJOYED YOUR KIDS?",
@@ -889,7 +936,10 @@
     ]
   },
   {
-    "input": "KID,KIDS",
+    "input": [
+      "KID",
+      "KIDS"
+    ],
     "output": [
       "DO YOU BELIEVE IN THE MIRACLE A CHILD CAN BRING YOU?",
       "HAVE YOU EVER REALLY ENJOY YOUR KIDS?",
@@ -935,7 +985,10 @@
     ]
   },
   {
-    "input": "PC,PERSONAL COMPUTER",
+    "input": [
+      "PC",
+      "PERSONAL COMPUTER"
+    ],
     "output": [
       "WHAT DO YOU NEED IN YOUR PC?",
       "HOW OFTEN DO YOU USE YOUR PC?",
@@ -989,7 +1042,10 @@
     ]
   },
   {
-    "input": "NIGHTMARE,BAD DREAM",
+    "input": [
+      "NIGHTMARE",
+      "BAD DREAM"
+    ],
     "output": [
       "WHAT WOULD YOU CONSIDER AS BEING THE WORST NIGHTMARE?",
       "HOW FREQUENT DO YOU HAVE NIGHTMARES?",
@@ -999,7 +1055,10 @@
     ]
   },
   {
-    "input": "RICH,WEALTHY",
+    "input": [
+      "RICH",
+      "WEALTHY"
+    ],
     "output": [
       "HOW RICH IS RICH?",
       "CAN YOU JUDGE A MAN BY HIS WEALTH?",
@@ -1124,7 +1183,7 @@
       "WHY ARE YOU FEELING THIS WAY?",
       "IS THERE A MENTAL BLOCKAGE THAT IS HURTING YOU?",
       "YOU DON'T HAVE TO SUFFER ~",
-      "JUST LOOK ON TH,E BRIGHT SIDE OF LIFE",
+      "JUST LOOK ON THE BRIGHT SIDE OF LIFE",
       "THERE IS STILL HOPE"
     ]
   },
