@@ -20,7 +20,9 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "execa": "^0.7.0",
+    "mkdirp": "^0.5.1",
     "queue": "^4.2.1",
+    "rimraf": "^2.6.1",
     "twit": "^2.2.9"
   }
 }
