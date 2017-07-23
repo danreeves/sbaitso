@@ -19,6 +19,14 @@ const tweetQueue = makeQueue({
 
 const stream = T.stream('user');
 
+const whitelistNames = [
+    'dnrvs',
+    'nickbreckon',
+    'chrisremo',
+    'ja2ke',
+    'importantcast',
+]
+
 async function generateAndTweet(T, direct_message) {
     console.log('>> processing:', direct_message.text);
     try {
@@ -47,7 +55,7 @@ stream.on('reconnect', function(reconn, res, interval) {
 
 stream.on('direct_message', async function({ direct_message }) {
     console.log('> message recieved:', direct_message.text);
-    if (direct_message.sender.screen_name === 'dnrvs') {
+    if (whitelistNames.includes(direct_message.sender.screen_name)) {
         tweetQueue.push(function(cb) {
             generateAndTweet(T, direct_message).then(res => {
                 cb();
