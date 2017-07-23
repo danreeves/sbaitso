@@ -47,14 +47,15 @@ module.exports = async function(text) {
         await sleep(1000);
 
         // Start dosox & dr sbaitso
-        await execa('dosbox', [
-            '-c',
-            'mount C sbaitso',
-            '-c',
-            'C:',
-            '-c',
-            `SAY.BAT "${text}"`,
-        ]);
+        await execa(
+            'dosbox',
+            ['-c', 'mount C sbaitso', '-c', 'C:', '-c', `SAY.BAT "${text}"`],
+            {
+                env: {
+                    TERM: 'xterm',
+                },
+            }
+        );
 
         await sleep(1000);
 
@@ -132,7 +133,6 @@ module.exports = async function(text) {
             'yuv420p',
             '/tmp/sbaitso/video.mp4',
         ]);
-
     } catch (err) {
         console.log(err);
     }
