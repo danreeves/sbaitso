@@ -5,6 +5,8 @@ function random(arr) {
 }
 
 module.exports = function getReply(tweetString, name) {
+    tweetString = tweetString.replace('@sbaitsobot', '');
+
     const matches = strings
         .map(map => {
             const inputs = typeof map.input === 'string'
