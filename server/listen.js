@@ -2,6 +2,7 @@ const Twit = require('twit');
 const makeQueue = require('queue');
 const generate = require('./generate.js');
 const tweet = require('./tweet.js');
+const reply = require('./reply.js');
 
 require('dotenv').config();
 
@@ -42,6 +43,21 @@ async function generateAndTweet(T, direct_message) {
     }
 }
 
+async function generateAndReply(T, data) {
+    // console.log(data)
+    const text = reply(data.text, data.user.name);
+    try {
+        await generate(text);
+        console.log('>>> generated');
+        await tweet(T, `@${data.user.screen_name} ${text}`, data.id);
+        console.log('>>> tweeted');
+        return true;
+    } catch (err) {
+        console.log(err);
+        return false;
+    }
+}
+
 stream.on('disconnect', function(disconnect) {
     console.log('> disconnected');
 });
@@ -59,6 +75,16 @@ stream.on('direct_message', async function({ direct_message }) {
     if (whitelistNames.includes(direct_message.sender.screen_name)) {
         tweetQueue.push(function(cb) {
             generateAndTweet(T, direct_message).then(res => {
+                cb();
+            });
+        });
+    }
+});
+
+stream.on('tweet', async function(data) {
+    if (data.in_reply_to_screen_name === 'sbaitsobot') {
+        tweetQueue.push(function(cb) {
+            generateAndReply(T, data).then(res => {
                 cb();
             });
         });

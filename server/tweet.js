@@ -1,6 +1,6 @@
 const videoFile = '/tmp/sbaitso/video.mp4';
 
-module.exports = function tweet(T, text) {
+module.exports = function tweet(T, text, in_reply_to = false) {
     return new Promise(function(resolve, reject) {
         T.postMediaChunked({ file_path: videoFile }, function(
             err,
@@ -28,6 +28,9 @@ module.exports = function tweet(T, text) {
                         status: text,
                         media_ids: [mediaIdStr],
                     };
+                    if (in_reply_to) {
+                        params.in_reply_to_status_id = in_reply_to;
+                    }
 
                     T.post('statuses/update', params, function(
                         err,

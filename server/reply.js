@@ -4,7 +4,7 @@ function random(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function getReply(tweetString, name) {
+module.exports = function getReply(tweetString, name) {
     const matches = strings
         .map(map => {
             const inputs = typeof map.input === 'string'
@@ -29,16 +29,16 @@ function getReply(tweetString, name) {
     }
 
     const match = matches[0];
+    let reply = '';
 
     // Do we have a capture group?
     if (match.match.length > 1) {
         const specific = match.match[1].trim().replace('?', '');
         const response = random(match.map.output);
-        return response.replace('*', specific).toUpperCase().replace('~', name);
+        reply = response.replace('*', specific);
     } else {
-        return random(match.map.output)
-            .replace('*', '')
-            .toUpperCase()
-            .replace('~', name);
+        reply = random(match.map.output).replace('*', '');
     }
+
+    return reply.toUpperCase().replace('~', name);
 }
