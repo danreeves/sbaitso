@@ -134,6 +134,6 @@ module.exports = async function(text) {
             '/tmp/sbaitso/video.mp4',
         ]);
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 };

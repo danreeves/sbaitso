@@ -14,7 +14,6 @@ module.exports = function getReply(tweetString, name) {
                 : map.input;
 
             for (let input of inputs) {
-                // console.log(input);
                 const matcher = new RegExp(input.replace('*', '(.*)'), 'igm');
                 if (tweetString.match(matcher)) {
                     return {

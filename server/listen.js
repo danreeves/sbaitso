@@ -38,13 +38,12 @@ async function generateAndTweet(T, direct_message) {
         console.log('>>> tweeted');
         return true;
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return false;
     }
 }
 
 async function generateAndReply(T, data) {
-    // console.log(data)
     const text = reply(data.text, data.user.name);
     try {
         await generate(text);
@@ -53,21 +52,24 @@ async function generateAndReply(T, data) {
         console.log('>>> tweeted');
         return true;
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return false;
     }
 }
 
 stream.on('disconnect', function(disconnect) {
     console.log('> disconnected');
+    console.log(`> queue is ${tweetQueue.length} long`);
 });
 
 stream.on('connect', function(connection) {
     console.log('> connected');
+    console.log(`> queue is ${tweetQueue.length} long`);
 });
 
 stream.on('reconnect', function(reconn, res, interval) {
     console.log('> reconnecting. statusCode:', res.statusCode);
+    console.log(`> queue is ${tweetQueue.length} long`);
 });
 
 stream.on('direct_message', async function({ direct_message }) {
@@ -75,9 +77,13 @@ stream.on('direct_message', async function({ direct_message }) {
     if (whitelistNames.includes(direct_message.sender.screen_name)) {
         tweetQueue.push(function(cb) {
             generateAndTweet(T, direct_message).then(res => {
+                console.log(
+                    `> processing done. queue is ${tweetQueue.length - 1} long`
+                );
                 cb();
             });
         });
+        console.log(`> added to queue. queue is ${tweetQueue.length} long`);
     }
 });
 
@@ -85,8 +91,12 @@ stream.on('tweet', async function(data) {
     if (data.in_reply_to_screen_name === 'sbaitsobot') {
         tweetQueue.push(function(cb) {
             generateAndReply(T, data).then(res => {
+                console.log(
+                    `> processing done. queue is ${tweetQueue.length - 1} long`
+                );
                 cb();
             });
         });
+        console.log(`> added to queue. queue is ${tweetQueue.length} long`);
     }
 });
