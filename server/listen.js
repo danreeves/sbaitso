@@ -22,7 +22,6 @@ const stream = T.stream('user');
 
 const whitelistNames = [
     'dnrvs',
-    'sbaitsobot',
     'nickbreckon',
     'chrisremo',
     'ja2ke',
