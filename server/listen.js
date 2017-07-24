@@ -44,6 +44,7 @@ async function generateAndTweet(T, direct_message) {
 }
 
 async function generateAndReply(T, data) {
+    console.log(data)
     const text = reply(data.text, data.user.name.toUpperCase());
     try {
         await generate(text);
