@@ -41,7 +41,7 @@ module.exports = async function(text) {
             '-c:a',
             'libmp3lame',
             '/tmp/sbaitso/out.mp3',
-        ]);
+        ]).catch(() => {});
 
         // Wait for ffmpeg recording to catch up
         await sleep(1000);

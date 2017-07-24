@@ -52,7 +52,6 @@ async function generateAndReply(T, data) {
         console.log('>>> tweeted');
         return true;
     } catch (err) {
-        // console.log(err);
         return false;
     }
 }
