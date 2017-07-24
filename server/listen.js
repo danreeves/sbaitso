@@ -49,7 +49,7 @@ async function generateAndReply(T, data) {
     try {
         await generate(text);
         console.log('>>> generated');
-        await tweet(T, `@${data.user.screen_name} ${text}`, data.id);
+        await tweet(T, `@${data.user.screen_name} ${text}`, data.id_str);
         console.log('>>> tweeted');
         return true;
     } catch (err) {
