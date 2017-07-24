@@ -30,7 +30,7 @@ const whitelistNames = [
 ];
 
 async function generateAndTweet(T, direct_message) {
-    console.log('>> processing:', direct_message.text);
+    console.log('> processing direct_message');
     try {
         await generate(direct_message.text);
         console.log('>>> generated');
@@ -44,7 +44,7 @@ async function generateAndTweet(T, direct_message) {
 }
 
 async function generateAndReply(T, data) {
-    console.log(data)
+    console.log('> processing tweet');
     const text = reply(data.text, data.user.name.toUpperCase());
     try {
         await generate(text);
@@ -76,7 +76,6 @@ stream.on('direct_message', async function({ direct_message }) {
     console.log('> message recieved:', direct_message.text);
     if (whitelistNames.includes(direct_message.sender.screen_name)) {
         tweetQueue.push(function(cb) {
-            console.log('> processing direct_message');
             generateAndTweet(T, direct_message).then(res => {
                 console.log(
                     `> processing done. queue is ${tweetQueue.length - 1} long`
@@ -91,7 +90,6 @@ stream.on('direct_message', async function({ direct_message }) {
 stream.on('tweet', async function(data) {
     if (data.in_reply_to_screen_name === 'sbaitsobot') {
         tweetQueue.push(function(cb) {
-            console.log('> processing tweet');
             generateAndReply(T, data).then(res => {
                 console.log(
                     `> processing done. queue is ${tweetQueue.length - 1} long`
