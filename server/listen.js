@@ -32,18 +32,18 @@ async function generateAndTweet(T, direct_message) {
     console.log('> processing direct_message');
     try {
         await generate(direct_message.text);
-        console.log('>>> generated');
+        console.log('>> generated');
         await tweet(T, direct_message.text);
-        console.log('>>> tweeted');
+        console.log('>> tweeted');
         return true;
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         return false;
     }
 }
 
 async function generateAndReply(T, data) {
-    console.log('> processing tweet');
+    console.log('>> processing tweet');
     const text = reply(data.text, data.user.name.toUpperCase());
     try {
         await generate(text);
@@ -52,6 +52,7 @@ async function generateAndReply(T, data) {
         console.log('>>> tweeted');
         return true;
     } catch (err) {
+        console.log(err);
         return false;
     }
 }
@@ -77,7 +78,7 @@ stream.on('direct_message', async function({ direct_message }) {
         tweetQueue.push(function(cb) {
             generateAndTweet(T, direct_message).then(res => {
                 console.log(
-                    `> processing done. queue is ${tweetQueue.length - 1} long`
+                    `>> processing done. queue is ${tweetQueue.length - 1} long`
                 );
                 cb();
             });
@@ -91,7 +92,7 @@ stream.on('tweet', async function(data) {
         tweetQueue.push(function(cb) {
             generateAndReply(T, data).then(res => {
                 console.log(
-                    `> processing done. queue is ${tweetQueue.length - 1} long`
+                    `>> processing done. queue is ${tweetQueue.length - 1} long`
                 );
                 cb();
             });
