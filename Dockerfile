@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 RUN apt-get -y update
 RUN apt-get -y install wget curl
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
